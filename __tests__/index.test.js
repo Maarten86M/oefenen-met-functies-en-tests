@@ -1,8 +1,6 @@
 // Leeg test bestand
 
-function sum(num1, num2) {
-    return num1 + num2;
-}
+const { sum, findByName } = require('../index');
 
 test("telt 2 sommen op en geeft dan een uitkomst hiervan",function () {
     // Arrange
@@ -18,6 +16,20 @@ test("telt 2 sommen op en geeft dan een uitkomst hiervan",function () {
 
 
 
-// Act
+// functie uitgeschreven
+test('find names wil return a object from an array',function () {
+    //arrangs
+    const usernames = [
+        {name: "jan", id:1 },
+        {name: "Henk", id:2 },
+        {name: "Piet", id:3 }
+    ];
+    const userToFind = "jan";
 
-// Assert
+    // acts
+    const result = findByName(usernames, userToFind);
+
+    //assert
+    expect(result).toEqual({name: "jan", id:1 });
+})
+
